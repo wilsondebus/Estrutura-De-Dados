@@ -27,11 +27,11 @@ def calcular_media(lista):
     return int(soma/len(lista))
 
 def calcular_mediana(lista):
-    lista.sort(key=lambda g: g.valor)   #ordenando a lista por glicemia 
-    n = len(lista)
-    if n % 2 == 0:
-        mediana = lista[n/2]
+    lista.sort(key=lambda g: g.valor)    
+    n = len(lista)  
+    if n % 2 == 1:  #se for impar 
+        mediana = lista[n//2].valor  
         return mediana
     else:
-        mediana = (lista[n/2] + lista[(n/2) - 1]) / 2
+        mediana = (lista[n//2].valor + lista[(n//2) - 1].valor) / 2
         return mediana
