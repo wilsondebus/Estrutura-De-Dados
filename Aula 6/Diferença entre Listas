@@ -1,0 +1,15 @@
+List: List não é uma lista concreta paea usar com new diretamente.
+Ela define o que uma lista deve saber fazer, por exemplo:
+- adicionar elementos 
+- remover elementos 
+- acessar por índice
+- percorrer os itens
+
+ArrayList: É uma lista baseada em array dinâmico 
+Boa para acessar elementos por índice, para adicionar no final,
+menor eficiente para inserir ou remover no meio, porque precisa
+deslocar elementos
+
+LinkedList:
+
+Vector:
