@@ -2,19 +2,19 @@ public class Clima{
     public String ano;
     public String mes; 
     public String temperatura;
-    public String preciptacao;
+    public String precipitacao;
 
-    public Clima(String ano, String mes, String temperatura, String preciptacao) {
+    public Clima(String ano, String mes, String temperatura, String precipitacao) {
         this.ano = ano;
         this.mes = mes;
         this.temperatura = temperatura;
-        this.preciptacao = preciptacao;
+        this.precipitacao = precipitacao;
     }
 
     //exibir um onbjeto completo da classe 
     @Override
     public String toString() {
-        return "Clima [ano=" + this.ano + ", mes=" + this.mes + ", temperatura=" + this.temperatura + ", preciptacao=" + this.preciptacao +"]";
+        return "Clima [ano=" + this.ano + ", mes=" + this.mes + ", temperatura=" + this.temperatura + ", preciptacao=" + this.precipitacao +"]";
     }
 
     @Override   //declarando a chave primaria 
