@@ -43,9 +43,9 @@ try: #tentar
     for item in lista:
         print(item)
 
-    dados_mes = {}
+    dados_mes = {}  #cria uma lista para os dados dos meses 
 
-    for item in lista: 
+    for item in lista: #percorre a lista 
         mes = item.mes
 
         dados_mes[mes] = {
@@ -65,14 +65,14 @@ try: #tentar
     maior_media_prec = 0
 
     for mes in dados_mes: 
-        media_temp = dados_mes[mes]["soma_temp"] / dados_mes[mes]["quantidade"]
-        media_prec = dados_mes[mes]["soma_prec"] / dados_mes[mes]["quantidade"]     
+        media_temp = dados_mes[mes]["soma_temp"] / dados_mes[mes]["quantidade"] #faz a media da temperatura de cada mes 
+        media_prec = dados_mes[mes]["soma_prec"] / dados_mes[mes]["quantidade"] #faz a media da precipitação de cada mes    
 
-        if media_temp > maior_media_temp:
+        if media_temp > maior_media_temp:   #compara com o mes mais quente e se for mais quente o mes mais quente vira ele
             maior_media_temp = media_temp
             mes_mais_quente = mes 
 
-        if media_prec > maior_media_prec:
+        if media_prec > maior_media_prec:   #mesma coisa com a precipitação 
             maior_media_prec = media_prec
             mes_mais_chuvoso = mes
 
