@@ -43,9 +43,4 @@ public class Aluno {
     public void setAnoIngresso(int anoIngresso) {
         this.anoIngresso = anoIngresso;
     }
-
-    
-
-    
-
 }
