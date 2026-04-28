@@ -11,21 +11,22 @@ public class Principal {
         
         Scanner teclado = new Scanner(System.in); 
 
-        List<Aluno> listaAlunos = new ArrayList<>(); 
+        List<Aluno> listaAlunos = new ArrayList<>();  //criando a lista
         String dadosAlunos = "alunos.csv"; 
 
         String linha;
 
         try {
-            BufferedReader leitor = new BufferedReader(new FileReader(dadosAlunos));
+            //leitura do csv
+            BufferedReader leitor = new BufferedReader(new FileReader(dadosAlunos)); 
 
             while((linha = leitor.readLine()) != null){
-                String[] dados = linha.split(",");
+                String[] dados = linha.split(","); //separando os dados pela ","
 
                 String nome = dados[0];
                 String curso = dados[1];
                 String sexo = dados[2];
-                int anoIngresso = Integer.parseInt(dados[3]);
+                int anoIngresso = Integer.parseInt(dados[3]); 
                 
                 Aluno aluno = new Aluno(nome, curso, sexo, anoIngresso);
 
@@ -48,26 +49,27 @@ public class Principal {
             boolean encontrado = false;
 
             for(int i = 0; i < listaAlunos.size(); i++){
-                if(listaAlunos.get(i).getNome().equalsIgnoreCase(localizarNome)){
+                if(listaAlunos.get(i).getNome().equalsIgnoreCase(localizarNome)){ //compara o nome digitado com os existentes na lista
                     System.out.println("Nome: "+listaAlunos.get(i).getNome());
                     System.out.println("Curso: "+listaAlunos.get(i).getCurso());
                     System.out.println("Sexo: "+listaAlunos.get(i).getSexo());
                     System.out.println("Ano Ingresso: "+listaAlunos.get(i).getAnoIngresso());
 
                     encontrado = true;
-                    break;
+                    break; //finaliza o laço
                     } 
                 }
             if(!encontrado){
             System.out.println("Aluno não encontrado!");
             }
 
+            //criando um contador para cada ano existente na base de dados 
             int contador2020 = 0;
             int contador2021 = 0;
             int contador2022 = 0;
             int contador2023 = 0;
 
-            for(int i = 0; i < listaAlunos.size(); i++){
+            for(int i = 0; i < listaAlunos.size(); i++){ //contando quantos alunos entraram por ano
                 if(listaAlunos.get(i).getAnoIngresso() == 2020){
                     contador2020++; 
                 } else if (listaAlunos.get(i).getAnoIngresso() == 2021){
@@ -85,7 +87,7 @@ public class Principal {
             System.out.println("\t2022: "+contador2022);
             System.out.println("\t2023: "+contador2023);
 
-            //conforme os ingressos dos antigos anos, vou fazer uma media para suupor quantas pessoas ingressariam em 2024
+            //calculando a media de ingressos dos anos anteriores para estimar quantos alunos se espera ingressar em 2024
             int mediaIngressos = (contador2020 + contador2021 + contador2022 + contador2023) / 4;
 
             System.out.println("No ano de 2024 espera-se "+mediaIngressos+" novos alunos");
