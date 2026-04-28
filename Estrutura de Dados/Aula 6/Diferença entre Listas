@@ -1,0 +1,18 @@
+DIFERENÇA: List, ArrayList, LinkedList e Vector
+
+List: List não é uma lista concreta paea usar com new diretamente.
+Ela define o que uma lista deve saber fazer, por exemplo:
+- adicionar elementos 
+- remover elementos 
+- acessar por índice
+- percorrer os itens
+
+ArrayList: É uma lista baseada em array dinâmico 
+Boa para acessar elementos por índice, para adicionar no final, menor eficiente para inserir ou remover no meio, porque precisa deslocar elementos. É uma opção mais comum, principalmente quando precisa guardar uma sequencia de elementos, acessar bastante por posição ou fazer operações simples de lista
+
+LinkedList:
+É uma lista encadeada, ou seja, cada elemento aponta para o proximo. Boa para inserções e remoções nas extremidades, acesso por índice é mais lento que no ArrayList e geralmente não é a melhor escolha se você acessa muito com get(i)
+Quando usar: quando houver muitas inserções, remoções e manipulações no ínicio/fim da lista
+
+Vector: É parecido com o ArrayList, tambpe, em array dinâmico. É sincronizado, ou seja, foi feito com preocupação maior para acesso concorrente, por isso costuma ser mais lento. Hoje é menos usado em código moderno.
+Quando usar: hoje em dia, quase sempre se prefere ArrayList em vez de Vector, a menos que haja um motivo muito específico. 
