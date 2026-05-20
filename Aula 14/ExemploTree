@@ -1,0 +1,15 @@
+                    100
+              50              200
+          30      80       150
+      20    40  70  90  120  180
+
+LRED -> pré fixado = pesquisar > 100 50 30 20 40 80 70 90 200 150 120 180
+  if(arvore.contains(60){
+  }
+
+LERD -> iu fixado = exibição > 20 30 40 50 70 80 90 100 120 150 180 200 
+  for(Integer i : arvore){
+  }
+
+LEDR -> pós fixado = destruição > 20 40 30 70 90 80 50 120 180 150 200 100 
+  arvore.clear()

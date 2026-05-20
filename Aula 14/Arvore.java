@@ -28,5 +28,6 @@ public class Arvore{
 
         System.out.println("Tamanho da TreeSet após limpar: "+treeSet.size());
 
+        
     }
 }
