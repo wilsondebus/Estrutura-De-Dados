@@ -8,7 +8,16 @@ public class Principal {
         
         Scanner teclado = new Scanner(System.in); 
 
-        TreeSet <FigurinhasRepetidas> listaFigurinhas = new TreeSet<>(); 
+        TreeSet <FigurinhasRepetidas> listaFigurinhasRepetidas = new TreeSet<>();
+        //ler o arquivo csv
+        LeitorFigurinhasRepetidasCSV leitorCsv = new LeitorFigurinhasRepetidasCSV();
+        leitorCsv.carregarFigurinhas(listaFigurinhasRepetidas);
+
+        TreeSet <FigurinhasDesejadasPessoais> listaFigurinhasDesejadasPessoais = new TreeSet<>();
+        //ler o arquivo csv
+        LeitorFigurinhasDesejadasPessoais leitorCsvFigurinhasDesejadas = new LeitorFigurinhasDesejadasPessoais();
+        leitorCsvFigurinhasDesejadas.carregarFigurinhas(listaFigurinhasDesejadasPessoais);
+
 
         int opcao; 
 
@@ -30,9 +39,9 @@ public class Principal {
                     case 1: 
                         FigurinhasRepetidas figurinha = new FigurinhasRepetidas();
 
-                        figurinha.cadastrarFigurinhaRepetida();
+                        figurinha.cadastrarFigurinha();
 
-                        listaFigurinhas.add(figurinha);
+                        listaFigurinhasRepetidas.add(figurinha);
 
                         try {
                             FileWriter arquivo = new FileWriter("figurinhas_repetidas_pessoais.csv", true);
@@ -46,30 +55,46 @@ public class Principal {
 
                     break;
 
-                    case 2: 
+                    case 2:
+                        ListarFigurinhasRepetidas listarFigurinhas = new ListarFigurinhasRepetidas();
+                        listarFigurinhas.exibirFigurinhasRepetidas(listaFigurinhasRepetidas);
                         
+                        break;
 
-                    case 3: 
-                        
+                    case 3:
+                        FigurinhasDesejadasPessoais figurinhasDesejadas = new FigurinhasDesejadasPessoais();
+
+                        figurinhasDesejadas.cadastrarFigurinha();
+
+                        listaFigurinhasDesejadasPessoais.add(figurinhasDesejadas);
+
+                        try {
+                            FileWriter arquivo = new FileWriter("figurinhas_desejadas_pessoais.csv", true);
+                            arquivo.write(figurinhasDesejadas.gerarLinhaCsv() + "\n");
+                            arquivo.close();
+
+                            System.out.println("Figurinha cadastrada com sucesso!");
+                        } catch (IOException e) {
+                            System.out.println("Erro ao salvar no arquivo CSV.");
+                        }
 
                     case 4:
-                        
+                        ListarFigurinhasDesejadasPessoais listarFigurinhasDesejadasPessoais = new ListarFigurinhasDesejadasPessoais();
+                        listarFigurinhasDesejadasPessoais.exibirFigurinhasDesejadasPessoais(listaFigurinhasDesejadasPessoais);
+
+                        break;
 
                     case 5:
                         
 
                     case 6:
-                        
-
-                    case 7: 
-
 
                     default:
-                        System.out.println("Opção Inválida");
+                        System.out.println("Saindo...");
                         
                 } 
 
-            } while (opcao != 7); 
+            } while (opcao < 1 || opcao  > 7);
 
 
 

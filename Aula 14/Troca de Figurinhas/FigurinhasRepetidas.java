@@ -11,7 +11,7 @@ public class FigurinhasRepetidas implements Comparable<FigurinhasRepetidas> {
     protected int quantidade;
     protected boolean rara; 
 
-    public FigurinhasRepetidas() { //pois antes vou criar uma figurinha vazia antes de inserir os dados 
+    public FigurinhasRepetidas() { //primeiro vou criar uma figurinha vazia para depois inserir os dados 
 
     }
 
@@ -24,7 +24,7 @@ public class FigurinhasRepetidas implements Comparable<FigurinhasRepetidas> {
         this.rara = rara; 
     }
 
-    public void cadastrarFigurinhaRepetida(){
+    public void cadastrarFigurinha(){
         System.out.println("\tCadastrar Figurinha");
         System.out.println();
 
@@ -64,4 +64,16 @@ public class FigurinhasRepetidas implements Comparable<FigurinhasRepetidas> {
     public int compareTo(FigurinhasRepetidas outra) {
         return Integer.compare(this.numeroFigurinha, outra.numeroFigurinha);
     }
+
+    @Override
+    public String toString(){
+        return "Seleção -> "+nomeSelecao +
+                "\nNumero Figurinha -> "+numeroFigurinha +
+                "\nNome Jogador -> "+nomeJogador +
+                "\nDescrição -> "+descricao +
+                "\nQuantidade -> "+quantidade +
+                "\nRara -> "+rara+
+                "\n-------------------\n";
+    }
+
 }
