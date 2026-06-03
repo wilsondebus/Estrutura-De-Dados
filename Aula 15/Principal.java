@@ -13,21 +13,21 @@ public class Principal {
 
         Grafo gAssimetrico = new Grafo(estacoes);
         //a,b
-        gAssimetrico.inserirAresta(0,1); 
+        gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("a"), gAssimetrico.pegarIndice("b")); 
         //b,c
-         gAssimetrico.inserirAresta(1,2);
+         gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("b"), gAssimetrico.pegarIndice("c"));
         //b,d
-         gAssimetrico.inserirAresta(1,3);
+         gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("b"), gAssimetrico.pegarIndice("d"));
         //c,e
-         gAssimetrico.inserirAresta(2,4);
+         gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("c"), gAssimetrico.pegarIndice("e"));
         //d,a
-        gAssimetrico.inserirAresta(3,0);
+        gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("d"), gAssimetrico.pegarIndice("a"));
         //d,b
-        gAssimetrico.inserirAresta(3,1);
+        gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("d"), gAssimetrico.pegarIndice("b"));
         //d,c
-        gAssimetrico.inserirAresta(3,2);
+        gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("e"), gAssimetrico.pegarIndice("d"));
         //e,d
-        gAssimetrico.inserirAresta(4,3);
+        gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("e"), gAssimetrico.pegarIndice("d"));
 
         gAssimetrico.mostrarMatriz(); 
         System.out.println();

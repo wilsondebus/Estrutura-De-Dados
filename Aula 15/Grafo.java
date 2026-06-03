@@ -55,4 +55,8 @@ public class Grafo {
         }
     }
 
+    int pegarIndice(String vertice){
+        return this.vertices.indexOf(vertice); 
+    }
+
 }
