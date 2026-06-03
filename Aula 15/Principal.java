@@ -11,6 +11,18 @@ public class Principal {
         estacoes.add("d");
         estacoes.add("e"); 
 
+
+        //TRABALHO AQUI
+            //ler o arquivo csv, chamado mapa.csv 
+                //a,b 
+                //b,c 
+                //b,d
+                //d,a
+                //d,b
+                //d,c
+                //e,d 
+            //extrair os vertices presentes no csv e adicona-los na lista de vértices (lembrar de ordenar)
+
         Grafo gAssimetrico = new Grafo(estacoes);
         //a,b
         gAssimetrico.inserirAresta(gAssimetrico.pegarIndice("a"), gAssimetrico.pegarIndice("b")); 

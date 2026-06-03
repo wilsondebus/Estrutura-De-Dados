@@ -1,0 +1,13 @@
+mapa.csv 
+a,b 
+b,c 
+b,d
+d,a
+d,b
+d,c
+e,d 
+
+fazer uma classe que 
+leia o csv 
+adicionasse os vertices localizados na lista de vertices sem duplicação 
+ordenar 
