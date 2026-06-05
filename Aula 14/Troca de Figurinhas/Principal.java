@@ -8,15 +8,29 @@ public class Principal {
         
         Scanner teclado = new Scanner(System.in); 
 
+        //figurinhas repetidas pessoais
         TreeSet <FigurinhasRepetidas> listaFigurinhasRepetidas = new TreeSet<>();
         //ler o arquivo csv
         LeitorFigurinhasRepetidasCSV leitorCsv = new LeitorFigurinhasRepetidasCSV();
         leitorCsv.carregarFigurinhas(listaFigurinhasRepetidas);
-
+        
+        //figurinhas desejadas pessoais 
         TreeSet <FigurinhasDesejadasPessoais> listaFigurinhasDesejadasPessoais = new TreeSet<>();
         //ler o arquivo csv
         LeitorFigurinhasDesejadasPessoais leitorCsvFigurinhasDesejadas = new LeitorFigurinhasDesejadasPessoais();
         leitorCsvFigurinhasDesejadas.carregarFigurinhas(listaFigurinhasDesejadasPessoais);
+
+        //figurinhas repetidas outro 
+        TreeSet <FigurinhasRepetidasOutro> listaFigurinhasRepetidasOutro = new TreeSet<>();
+        //ler o arquivo csv 
+        LeitorFigurinhasRepetidasOutro leitorCsvFigurinhasRepetidasOutro = new LeitorFigurinhasRepetidasOutro();
+        leitorCsvFigurinhasRepetidasOutro.carregarFigurinhas(listaFigurinhasRepetidasOutro);
+
+        //figurinhas desejadas outro
+        TreeSet <FigurinhasDesejadasOutro> listaFigurinhasDesejadasOutro = new TreeSet<>(); 
+        //ler o arquivo csv
+        LeitorFigurinhasDesejadasOutro leitorCsvFigurinhasDesejadasOutro = new LeitorFigurinhasDesejadasOutro(); 
+        leitorCsvFigurinhasDesejadasOutro.carregarFigurinhas(listaFigurinhasDesejadasOutro); 
 
 
         int opcao; 
@@ -28,7 +42,7 @@ public class Principal {
             System.out.println("2. Listar minhas figurinhas repetidas");
             System.out.println("3. Cadastrar figurinhas desejadas pessoais");
             System.out.println("4. Listar figurinhas desejadas pessoais");
-            System.out.println("5. Carregar figurinhas reptidas de outro usuário");
+            System.out.println("5. Carregar figurinhas repetidas de outro usuário");
             System.out.println("6. Carregar figurinhas desejadas de outro usuário");
             System.out.println("7. Sair");
 
@@ -78,6 +92,8 @@ public class Principal {
                             System.out.println("Erro ao salvar no arquivo CSV.");
                         }
 
+                        break;
+
                     case 4:
                         ListarFigurinhasDesejadasPessoais listarFigurinhasDesejadasPessoais = new ListarFigurinhasDesejadasPessoais();
                         listarFigurinhasDesejadasPessoais.exibirFigurinhasDesejadasPessoais(listaFigurinhasDesejadasPessoais);
@@ -85,16 +101,29 @@ public class Principal {
                         break;
 
                     case 5:
-                        
+                        ListarFigurinhasRepetidasOutro listarFigurinhasRepetidasOutro = new ListarFigurinhasRepetidasOutro(); 
+                        listarFigurinhasRepetidasOutro.exibirFigurinhasRepetidas(listaFigurinhasRepetidasOutro);
+
+                        MatchFigurinhas matchFigurinhas1 = new MatchFigurinhas(); 
+                        matchFigurinhas1.matchRepetidasDoOutroComMinhasDesejadas(listaFigurinhasRepetidasOutro, listaFigurinhasDesejadasPessoais);
+
+                        break;
 
                     case 6:
+                        ListarFigurinhasDesejadasOutro listarFigurinhasDesejadasOutro = new ListarFigurinhasDesejadasOutro(); 
+                        listarFigurinhasDesejadasOutro.exibirFigurinhasDesejadasOutro(listaFigurinhasDesejadasOutro);
+
+                        MatchFigurinhas matchFigurinhas2 = new MatchFigurinhas();
+                        matchFigurinhas2.matchMinhasRepetidasComDesejadasDoOutro(listaFigurinhasRepetidas, listaFigurinhasDesejadasOutro);
+                        
+                        break; 
 
                     default:
                         System.out.println("Saindo...");
                         
                 } 
 
-            } while (opcao < 1 || opcao  > 7);
+            } while (opcao != 7);
 
 
 
